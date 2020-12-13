@@ -9,7 +9,6 @@ import { fetchCollectionFailure, fetchCollectionSuccess } from './shop.actions'
 // The reason we use yield with 'convert...' is to ensure async code or if convert... takes longer time than reqd
 // put = dispatch() + yield
 export function* fetchCollectionAsync(){
-    yield console.log("I GOT BLASTED")
     try{
         const collectionRef = firestore.collection('collections')
         const snapShot = yield collectionRef.get()
