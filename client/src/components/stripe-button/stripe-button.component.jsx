@@ -6,9 +6,11 @@ const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price*100
     const publishableKey = "pk_test_51H2z6zI5yTOoabrNe9NONixkoVjjpafFdI4WYTi7v8nxL2hbmjBLHFTO6I1c2QRN6fEpq2OspMa6Vt2tFhzoiLrf00uEFoIOfr"
 
+    // https://new-crwn.herokuapp.com/payment
+
     const onToken = (token) => {
         axios({
-            url: 'https://new-crwn.herokuapp.com/payment',
+            url: 'http://localhost:5000/payment',
             method: 'post',
             data: {
                 amount: priceForStripe,
@@ -36,6 +38,7 @@ const StripeCheckoutButton = ({ price }) => {
             amount={priceForStripe}
             panelLabel="PAY NOW!"
             token={onToken}
+            currency="INR"
             stripeKey={publishableKey}
         />
     )

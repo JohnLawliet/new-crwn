@@ -59,7 +59,7 @@ app.post('/payment', (req,res) => {
     .then(customer => {
         stripe.charges.create({
             amount: priceForStripe,
-            currency: "usd",
+            currency: "inr",
             customer: customer.id,
             receipt_email: token.email,
         },{idempotencykey})
